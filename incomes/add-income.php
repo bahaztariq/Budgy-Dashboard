@@ -1,5 +1,5 @@
 <?php
-require('db.php');
+require('../db_connect.php');
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
    $montant = $_POST['montant'] ;
@@ -9,7 +9,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
    $sql = "INSERT INTO incomes(montant,date_,description) VALUES ('$montant','$Date','$Description')";
 
    if(mysqli_query($connect,$sql)){
-    header("location:index.php");
+    header("location:../index.php");
    }else{
     echo mysqli_error($connect);
    }

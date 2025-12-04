@@ -19,7 +19,7 @@
         <img src="imgs/icon.png" alt="" class="w-12 h-12">
         <h2 class="text-black text-3xl font-bold">Budgy</h2>
         </div>
-        <a href="dashboard.php" class=" flex justify-center items-center bg-black text-white px-6 py-3 rounded-xl text-xl">Get Start</a>
+        <a href="Dashboard.php" class=" flex justify-center items-center bg-black text-white px-6 py-3 rounded-xl text-xl">Get Start</a>
        </div> 
     </header>
     <main class="w-full h-screen flex justify-end p-1">

@@ -1,5 +1,5 @@
 <?php
-require('db_connect.php');
+require('./db_connect.php');
 include('incomes/show-incomes.php');
 ?>
 <!DOCTYPE html>
@@ -8,7 +8,7 @@ include('incomes/show-incomes.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tailwind Dashboard Template</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -86,9 +86,12 @@ include('incomes/show-incomes.php');
 
             <main class="flex-1 overflow-x-hidden overflow-y-auto bg-black-50 p-6">
                 
-                <div class="mb-6">
+                <div class="mb-6 flex w-full justify-between">
+                    <div>
                     <h2 class="text-2xl font-bold text-black-800">Dashboard Overview</h2>
                     <p class="text-sm text-black-500">Welcome back, here's what's happening today.</p>
+                    </div>
+                    <button class="Add-revenu-btn bg-black py-2 px-4 rounded-2xl text-white cursor-pointer">+ Add Revenu</button>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -233,13 +236,13 @@ include('incomes/show-incomes.php');
                 <div class="h-10"></div> </main>
         </div>
     </div>
-     <div class="modal Modify-revenu-form w-full h-screen bg-black/30 fixed top-0 left-0 flex justify-center items-center hidden" >
-        <form action="add-income.php" method="POST" class=" relative w-full max-w-116 max-h-80 md:max-h-128 bg-white rounded-xl shadow-md px-4 py-8 flex flex-col items-center gap-4 overflow-y-auto ">
+     <div class="modal Add-revenu-form w-full h-screen bg-black/30 fixed top-0 left-0 flex justify-center items-center hidden" >
+        <form action="incomes/add-income.php" method="POST" class=" relative w-full max-w-116 max-h-80 md:max-h-128 bg-white rounded-xl shadow-md px-4 py-8 flex flex-col items-center gap-4 overflow-y-auto ">
             <button class=" close-Modal-btn absolute top-2 right-4 text-3xl cursor-pointer">&times;</button>
             <h2 class="font-bold text-3xl text-black">Add Revenu</h2>
             <div class="flex flex-col w-full gap-1">
                 <label for="">Montant:</label>
-                <input type="text" name="montant" pattern ="[0-9]" placeholder="Enter the amount of Revenu" class=" p-2 bg-gray-200 rounded border border-gray-300" required>
+                <input type="text" name="montant" pattern ="[0-9]{1,}" placeholder="Enter the amount of Revenu" class=" p-2 bg-gray-200 rounded border border-gray-300" required>
             </div>
             <div class="flex flex-col w-full gap-1">
                 <label for="">Date:</label>
@@ -249,7 +252,7 @@ include('incomes/show-incomes.php');
                 <label for="">Description:</label>
                 <textarea name="description" id="" placeholder="Enter the Description of Revenu" class=" min-h-30 p-2 bg-gray-200 rounded border border-gray-300" required></textarea>
             </div>
-            <input type="submit" value="Modify" class=" w-full bg-black text-white rounded-xl p-4">
+            <input type="submit" value="Add Revenu" class=" w-full bg-black text-white rounded-xl p-4">
         </form>
     </div>
     <script src="script.js"></script>
