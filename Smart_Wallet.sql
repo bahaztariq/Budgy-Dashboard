@@ -14,3 +14,5 @@ CREATE TABLE expences(
     description varchar(1000) NOT NULL,
     date_ DATE DEFAULT (CURRENT_TIME)
 );
+ALTER TABLE incomes 
+ADD dateIn DATETIME DEFAULT CURRENT_TIMESTAMP;
