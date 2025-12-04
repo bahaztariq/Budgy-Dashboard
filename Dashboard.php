@@ -95,11 +95,17 @@ include('incomes/show-incomes.php');
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                    <div class="bg-white rounded-xl shadow-sm p-5 border border-black-100">
+                    <div class="bg-white rounded-xl shadow-sm p-5 border border-gray-100">
                         <div class="flex justify-between items-center mb-4">
                             <div>
-                                <p class="text-xs text-black-500 font-medium uppercase">Total Revenue</p>
-                                <h3 class="text-2xl font-bold text-black-800">$45,231</h3>
+                            <p class="text-xs text-black-500 font-medium uppercase">Total Revenue</p>
+                            <?php 
+                             $sql = "SELECT SUM(montant) AS TotalRevenu FROM incomes";
+                             $query = mysqli_query($connect, $sql); 
+                             $row = mysqli_fetch_assoc($query);
+                             $sum = $row['TotalRevenu'] ?? 0; 
+                             echo "<h3 class='text-2xl font-bold text-black-800'>" . number_format($sum, 2) . "</h3>";
+                             ?>
                             </div>
                             <div class="p-2 bg-green-50 rounded-lg text-green-600">
                                 <i class="ph ph-currency-dollar text-2xl"></i>
@@ -110,7 +116,7 @@ include('incomes/show-incomes.php');
                         </p>
                     </div>
 
-                    <div class="bg-white rounded-xl shadow-sm p-5 border border-black-100">
+                    <div class="bg-white rounded-xl shadow-sm p-5 border border-gray-100">
                         <div class="flex justify-between items-center mb-4">
                             <div>
                                 <p class="text-xs text-black-500 font-medium uppercase">Active Users</p>
@@ -125,7 +131,7 @@ include('incomes/show-incomes.php');
                         </p>
                     </div>
 
-                    <div class="bg-white rounded-xl shadow-sm p-5 border border-black-100">
+                    <div class="bg-white rounded-xl shadow-sm p-5 border border-gray-100">
                         <div class="flex justify-between items-center mb-4">
                             <div>
                                 <p class="text-xs text-black-500 font-medium uppercase">New Orders</p>
@@ -140,7 +146,7 @@ include('incomes/show-incomes.php');
                         </p>
                     </div>
 
-                    <div class="bg-white rounded-xl shadow-sm p-5 border border-black-100">
+                    <div class="bg-white rounded-xl shadow-sm p-5 border border-gray-100">
                         <div class="flex justify-between items-center mb-4">
                             <div>
                                 <p class="text-xs text-black-500 font-medium uppercase">Pending Issues</p>
@@ -155,14 +161,14 @@ include('incomes/show-incomes.php');
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
-                    <div class="lg:col-span-2 bg-white rounded-xl shadow-sm p-6 border border-black-100">
+                    <div class="lg:col-span-2 bg-white rounded-xl shadow-sm p-6 border border-gray-100">
                         <h3 class="font-bold text-lg text-black-800 mb-4">Revenue Analytics</h3>
                         <div class="h-64 w-full bg-black-50 rounded-lg flex items-center justify-center border border-dashed border-black-300 text-black-400">
                             [ Chart.js Canvas Area ]
                         </div>
                     </div>
 
-                    <div class="bg-white rounded-xl shadow-sm p-6 border border-black-100">
+                    <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
                         <h3 class="font-bold text-lg text-black-800 mb-4">Traffic Source</h3>
                         <div class="h-40 w-full bg-black-50 rounded-lg flex items-center justify-center border border-dashed border-black-300 text-black-400 mb-4">
                             [ Donut Chart Area ]
@@ -187,8 +193,8 @@ include('incomes/show-incomes.php');
                     </div>
                 </div>
 
-                <div class="bg-white rounded-xl shadow-sm border border-black-100 overflow-hidden">
-                    <div class="px-6 py-4 border-b border-black-100 flex justify-between items-center">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="px-6 py-4 border- border-gray-100 flex justify-between items-center">
                         <h3 class="font-bold text-lg text-black-800">Recent Transactions</h3>
                         <button class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">View All</button>
                     </div>
@@ -217,10 +223,10 @@ include('incomes/show-incomes.php');
                                    <td class='amount px-6 py-4 font-medium text-black-800'><span>{$row['montant']}</span> DH</td>
                                    <td class='px-6 py-4'>
                                    <div class='flex gap-4' >
-                                    <a href='modifieincome.php/?id={$row['id']}' class='text-blue-400 cursor-pointer'>
+                                    <a href='incomes/modify-income.php/?id={$row['id']}' class='text-blue-400 cursor-pointer'>
                                     <button class='btn-action btn-edit text-blue-400 cursor-pointer'><i class='fas fa-edit'></i></button>
                                   </a>
-                                   <a href='Supprimerincome.php/?id={$row['id']}' class='text-red-400 cursor-pointer' >
+                                   <a href='incomes/Delete-income.php/?id={$row['id']}' class='text-red-400 cursor-pointer' >
                                     <button class='btn-action btn-delete text-red-400 cursor-pointer'><i class='fas fa-trash'></i></button>
                                   </a>   
                                   </div>
