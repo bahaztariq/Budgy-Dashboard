@@ -22,7 +22,7 @@
         <a href="dashboard.php" class=" flex justify-center items-center bg-black text-white px-6 py-3 rounded-xl text-xl">Get Start</a>
        </div> 
     </header>
-    <main class="w-full h-screen flex justify-end p-2">
+    <main class="w-full h-screen flex justify-end p-1">
         <img src="imgs/heroBanner.png" alt="" class="hero-banner rounded-xl w-1/2 h-screen ">
     </main>
     
