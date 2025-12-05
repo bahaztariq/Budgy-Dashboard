@@ -9,6 +9,7 @@ include('incomes/show-incomes.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tailwind Dashboard Template</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -94,7 +95,7 @@ include('incomes/show-incomes.php');
                     <button class="Add-revenu-btn bg-black py-2 px-4 rounded-2xl text-white cursor-pointer">+ Add Revenu</button>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                     <div class="bg-white rounded-xl shadow-sm p-5 border border-gray-100">
                         <div class="flex justify-between items-center mb-4">
                             <div>
@@ -131,7 +132,7 @@ include('incomes/show-incomes.php');
                         </p>
                     </div>
 
-                    <div class="bg-white rounded-xl shadow-sm p-5 border border-gray-100">
+                    <!-- <div class="bg-white rounded-xl shadow-sm p-5 border border-gray-100">
                         <div class="flex justify-between items-center mb-4">
                             <div>
                                 <p class="text-xs text-black-500 font-medium uppercase">New Orders</p>
@@ -144,7 +145,7 @@ include('incomes/show-incomes.php');
                         <p class="text-xs text-red-500 flex items-center gap-1">
                             <i class="ph ph-trend-down"></i> -1.2% <span class="text-black-400">from last month</span>
                         </p>
-                    </div>
+                    </div> -->
 
                     <div class="bg-white rounded-xl shadow-sm p-5 border border-gray-100">
                         <div class="flex justify-between items-center mb-4">
@@ -164,7 +165,7 @@ include('incomes/show-incomes.php');
                     <div class="lg:col-span-2 bg-white rounded-xl shadow-sm p-6 border border-gray-100">
                         <h3 class="font-bold text-lg text-black-800 mb-4">Revenue Analytics</h3>
                         <div class="h-64 w-full bg-black-50 rounded-lg flex items-center justify-center border border-dashed border-black-300 text-black-400">
-                            [ Chart.js Canvas Area ]
+                         <canvas id="myChart"></canvas>
                         </div>
                     </div>
 
