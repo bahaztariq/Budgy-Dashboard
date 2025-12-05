@@ -38,10 +38,10 @@ closemodal.forEach((closemdl)=>{
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: ['Revenu', 'Expences', 'Balance'],
       datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
+        label: '# of Moneeey',
+        data: Donut,
         borderWidth: 1
       }]
     },
@@ -53,18 +53,18 @@ closemodal.forEach((closemdl)=>{
       }
     }
   });
-
+ console.log(Donut);
   new Chart(dtx, {
   type: 'doughnut',
   data : {
   labels: [
-    'Red',
-    'Blue',
-    'Yellow'
+    'Expences',
+    'Revenus',
+    'Balance'
   ],
   datasets: [{
     label: 'My First Dataset',
-    data: [300, 50, 100],
+    data: Donut,
     backgroundColor: [
       'rgb(255, 99, 132)',
       'rgb(54, 162, 235)',

@@ -238,7 +238,7 @@ include('expences/show-expences.php');
                     </div>
                 </div>
                 <div class="h-10"></div>
-                <!-- expencze -->
+                <!-- expences -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
                     <div class="px-6 py-4 border- border-gray-100 flex justify-between items-center">
                         <h3 class="font-bold text-lg text-black-800">Expences Transactions</h3>
@@ -326,6 +326,12 @@ include('expences/show-expences.php');
             <input type="submit" value="Add Revenu" class=" w-full bg-black text-white rounded-xl p-4">
         </form>
     </div>
+    <script>
+        let Donut = [];
+        Donut.push("<?php echo $row1['TotalRevenu']?>");
+        Donut.push("<?php echo $row2['TotalExpences']?>")
+        Donut.push("<?php echo $sum?>")
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
