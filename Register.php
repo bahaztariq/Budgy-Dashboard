@@ -18,8 +18,8 @@
                     <span>Back To Home </span>
                 </a>
             </div>
-            <form action="" method="POST" class="w-3/5 h-7/8 rounded-xl p-2 flex flex-col gap-6 ">
-                <h1 class=" text-black font-bold text-5xl" >Sign In</h1>
+            <form action="" method="POST" class="w-3/5 h-7/8 rounded-xl p-2 flex flex-col gap-2 ">
+                <h1 class=" text-black font-bold text-5xl" >Sign Up</h1>
                 <div class="flex flex-col gap-2">
                     <label for="">UserName Or Email :</label>
                     <input type="text" placeholder="Enter Your userName Or email" class="w-full p-2 bg-black/20 rounded-md">
@@ -28,10 +28,8 @@
                     <label for="">Password :</label>
                     <input type="Password" placeholder="Enter Your userName Or email" class="w-full p-2 bg-black/20 rounded-md">
                 </div>
-                <div class="flex flex-col gap-2">
                 <input type="submit" value="Login Now" class="w-full p-2 bg-green-300 rounded-md">
-                <p>Don't have an account?<a href="Register.php" class="text-green-500">Sign Up</a></p>
-                </div>
+                <p>Already Have Account?<a href="login.php" class="text-green-500">Sign in</a></p>
             </form>
         </div>
         
