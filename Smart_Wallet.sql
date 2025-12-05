@@ -17,3 +17,10 @@ CREATE TABLE expences(
 ALTER TABLE incomes ADD dateIn DATETIME DEFAULT CURRENT_TIMESTAMP;
 
 TRUNCATE incomes;
+
+CREATE TABLE users(
+    userId INT PRIMARY KEY AUTO_INCREMENT,
+    userName varchar(256),
+    
+
+);

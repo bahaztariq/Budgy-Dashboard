@@ -25,7 +25,7 @@ include('incomes/show-incomes.php');
 
     <div class="flex h-screen overflow-hidden">
 
-        <aside class="flex flex-col absolute z-40 left-0 top-0 bottom-0 w-64 bg-green-500 text-white transition-transform duration-300 ease-in-out md:relative md:tranblack-x-0"
+        <aside class="flex flex-col absolute z-40 left-0 top-0 bottom-0 w-64 bg-green-500 text-white transition-transform duration-300 ease-in-out md:relative md:tranblack-x-0 hidden"
                :class="sidebarOpen ? 'tranblack-x-0' : '-tranblack-x-full'">
             
             <div class="h-16 flex items-center justify-center border-b border-black-700">
@@ -100,7 +100,7 @@ include('incomes/show-incomes.php');
                             <div>
                             <p class="text-xs text-black-500 font-medium uppercase">Total Revenue</p>
                             <?php 
-                             $sql = "SELECT SUM(montant) AS TotalRevenu FROM incomes";
+                             $sql = "SELECT SUM(montant) AS TotalRevenu FROM incomes GROUP BY DATE_FORMAT(dateIn,'%Y-%m') ORDER BY DATE_FORMAT(dateIn,'%Y-%m') DESC LIMIT 1";
                              $query = mysqli_query($connect, $sql); 
                              $row = mysqli_fetch_assoc($query);
                              $sum = $row['TotalRevenu'] ?? 0; 
