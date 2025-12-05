@@ -1,6 +1,7 @@
 <?php
 require('./db_connect.php');
 include('incomes/show-incomes.php');
+include('expences/show-expences.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -92,7 +93,10 @@ include('incomes/show-incomes.php');
                     <h2 class="text-2xl font-bold text-black-800">Dashboard Overview</h2>
                     <p class="text-sm text-black-500">Welcome back, here's what's happening today.</p>
                     </div>
+                    <div>
                     <button class="Add-revenu-btn bg-black py-2 px-4 rounded-2xl text-white cursor-pointer">+ Add Revenu</button>
+                    <button class="Add-expences-btn bg-black py-2 px-4 rounded-2xl text-white cursor-pointer">+ Add expences</button>
+                   </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
@@ -103,8 +107,8 @@ include('incomes/show-incomes.php');
                             <?php 
                              $sql = "SELECT SUM(montant) AS TotalRevenu FROM incomes GROUP BY DATE_FORMAT(dateIn,'%Y-%m') ORDER BY DATE_FORMAT(dateIn,'%Y-%m') DESC LIMIT 1";
                              $query = mysqli_query($connect, $sql); 
-                             $row = mysqli_fetch_assoc($query);
-                             $sum = $row['TotalRevenu'] ?? 0; 
+                             $row1 = mysqli_fetch_assoc($query);
+                             $sum = $row1['TotalRevenu'] ?? 0; 
                              echo "<h3 class='text-2xl font-bold text-black-800'>" . number_format($sum, 2) . "</h3>";
                              ?>
                             </div>
@@ -120,8 +124,14 @@ include('incomes/show-incomes.php');
                     <div class="bg-white rounded-xl shadow-sm p-5 border border-gray-100">
                         <div class="flex justify-between items-center mb-4">
                             <div>
-                                <p class="text-xs text-black-500 font-medium uppercase">Active Users</p>
-                                <h3 class="text-2xl font-bold text-black-800">2,345</h3>
+                                <p class="text-xs text-black-500 font-medium uppercase">Total Expences</p>
+                                <?php 
+                                $sql = "SELECT SUM(montant) AS TotalExpences FROM expences GROUP BY DATE_FORMAT(dateIn,'%Y-%m') ORDER BY DATE_FORMAT(dateIn,'%Y-%m') DESC LIMIT 1";
+                                $query = mysqli_query($connect, $sql); 
+                                $row2 = mysqli_fetch_assoc($query);
+                                $sum = $row2['TotalExpences'] ?? 0; 
+                                echo "<h3 class='text-2xl font-bold text-black-800'>" . number_format($sum, 2) . "</h3>";
+                             ?>
                             </div>
                             <div class="p-2 bg-indigo-50 rounded-lg text-indigo-600">
                                 <i class="ph ph-users-three text-2xl"></i>
@@ -132,26 +142,14 @@ include('incomes/show-incomes.php');
                         </p>
                     </div>
 
-                    <!-- <div class="bg-white rounded-xl shadow-sm p-5 border border-gray-100">
-                        <div class="flex justify-between items-center mb-4">
-                            <div>
-                                <p class="text-xs text-black-500 font-medium uppercase">New Orders</p>
-                                <h3 class="text-2xl font-bold text-black-800">1,245</h3>
-                            </div>
-                            <div class="p-2 bg-orange-50 rounded-lg text-orange-600">
-                                <i class="ph ph-shopping-cart text-2xl"></i>
-                            </div>
-                        </div>
-                        <p class="text-xs text-red-500 flex items-center gap-1">
-                            <i class="ph ph-trend-down"></i> -1.2% <span class="text-black-400">from last month</span>
-                        </p>
-                    </div> -->
-
                     <div class="bg-white rounded-xl shadow-sm p-5 border border-gray-100">
                         <div class="flex justify-between items-center mb-4">
                             <div>
-                                <p class="text-xs text-black-500 font-medium uppercase">Pending Issues</p>
-                                <h3 class="text-2xl font-bold text-black-800">12</h3>
+                                <p class="text-xs text-black-500 font-medium uppercase">Balance</p>
+                                <?php 
+                             $sum = $row1['TotalRevenu']  - $row2['TotalExpences']; 
+                             echo "<h3 class='text-2xl font-bold text-black-800'>" . number_format($sum, 2) . "</h3>";
+                             ?>
                             </div>
                             <div class="p-2 bg-red-50 rounded-lg text-red-600">
                                 <i class="ph ph-warning-circle text-2xl"></i>
@@ -193,10 +191,10 @@ include('incomes/show-incomes.php');
                         </div>
                     </div>
                 </div>
-
+                 <!-- incomes -->
                 <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
                     <div class="px-6 py-4 border- border-gray-100 flex justify-between items-center">
-                        <h3 class="font-bold text-lg text-black-800">Recent Transactions</h3>
+                        <h3 class="font-bold text-lg text-black-800">Revenu Transactions</h3>
                         <button class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">View All</button>
                     </div>
                     <div class="overflow-x-auto">
@@ -212,7 +210,54 @@ include('incomes/show-incomes.php');
                             </thead>
                             <tbody class="divide-y divide-black-100">
                                 <?php
-                                while($row = mysqli_fetch_assoc($result)){
+                                while($row = mysqli_fetch_assoc($incomes)){
+                                  echo "<tr class='hover:bg-black-50 transition'>
+                                   <td class='px-6 py-4 font-medium text-black-800'>#{$row['id']}</td>
+                                   <td class='px-6 py-4'>
+                                     <div class='flex items-center gap-3'>
+                                        <span>{$row['description']}</span>
+                                     </div>
+                                   </td>
+                                   <td class='date class='px-6 py-4'>{$row['date_']}</td>
+                                   <td class='amount px-6 py-4 font-medium text-black-800'><span>{$row['montant']}</span> DH</td>
+                                   <td class='px-6 py-4'>
+                                   <div class='flex gap-4' >
+                                    <a href='incomes/modify-income.php/?id={$row['id']}' class='text-blue-400 cursor-pointer'>
+                                    <button class='btn-action btn-edit text-blue-400 cursor-pointer'><i class='fas fa-edit'></i></button>
+                                  </a>
+                                   <a href='incomes/Delete-income.php/?id={$row['id']}' class='text-red-400 cursor-pointer' >
+                                    <button class='btn-action btn-delete text-red-400 cursor-pointer'><i class='fas fa-trash'></i></button>
+                                  </a>   
+                                  </div>
+                                 </td>
+                                 </tr>";
+                                }
+                                 ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="h-10"></div>
+                <!-- expencze -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="px-6 py-4 border- border-gray-100 flex justify-between items-center">
+                        <h3 class="font-bold text-lg text-black-800">Expences Transactions</h3>
+                        <button class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">View All</button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm text-black-600">
+                            <thead class="bg-black-50 text-xs uppercase font-semibold text-black-500">
+                                <tr>
+                                    <th class="px-6 py-4">Transaction ID</th>
+                                    <th class="px-6 py-4">Description</th>
+                                    <th class="px-6 py-4">Date</th>
+                                    <th class="px-6 py-4">Amount</th>
+                                    <th class="px-6 py-4">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-black-100">
+                                <?php
+                                while($row = mysqli_fetch_assoc($expences)){
                                   echo "<tr class='hover:bg-black-50 transition'>
                                    <td class='px-6 py-4 font-medium text-black-800'>#{$row['id']}</td>
                                    <td class='px-6 py-4'>
@@ -240,13 +285,32 @@ include('incomes/show-incomes.php');
                     </div>
                 </div>
 
-                <div class="h-10"></div> </main>
+                 </main>
         </div>
     </div>
      <div class="modal Add-revenu-form w-full h-screen bg-black/30 fixed top-0 left-0 flex justify-center items-center hidden" >
         <form action="incomes/add-income.php" method="POST" class=" relative w-full max-w-116 max-h-80 md:max-h-128 bg-white rounded-xl shadow-md px-4 py-8 flex flex-col items-center gap-4 overflow-y-auto ">
             <button class=" close-Modal-btn absolute top-2 right-4 text-3xl cursor-pointer">&times;</button>
             <h2 class="font-bold text-3xl text-black">Add Revenu</h2>
+            <div class="flex flex-col w-full gap-1">
+                <label for="">Montant:</label>
+                <input type="text" name="montant" pattern ="[0-9]{1,}" placeholder="Enter the amount of Revenu" class=" p-2 bg-gray-200 rounded border border-gray-300" required>
+            </div>
+            <div class="flex flex-col w-full gap-1">
+                <label for="">Date:</label>
+                <input type="date" name="Date"  placeholder="Enter the amount of Revenu" class=" p-2 bg-gray-200 rounded border border-gray-300" required>
+            </div>
+            <div class="flex flex-col w-full gap-1">
+                <label for="">Description:</label>
+                <textarea name="description" id="" placeholder="Enter the Description of Revenu" class=" min-h-30 p-2 bg-gray-200 rounded border border-gray-300" required></textarea>
+            </div>
+            <input type="submit" value="Add Revenu" class=" w-full bg-black text-white rounded-xl p-4">
+        </form>
+    </div>
+    <div class="modal Add-expences-form w-full h-screen bg-black/30 fixed top-0 left-0 flex justify-center items-center hidden" >
+        <form action="expences/add-expences.php" method="POST" class=" relative w-full max-w-116 max-h-80 md:max-h-128 bg-white rounded-xl shadow-md px-4 py-8 flex flex-col items-center gap-4 overflow-y-auto ">
+            <button class=" close-Modal-btn absolute top-2 right-4 text-3xl cursor-pointer">&times;</button>
+            <h2 class="font-bold text-3xl text-black">Add Expences</h2>
             <div class="flex flex-col w-full gap-1">
                 <label for="">Montant:</label>
                 <input type="text" name="montant" pattern ="[0-9]{1,}" placeholder="Enter the amount of Revenu" class=" p-2 bg-gray-200 rounded border border-gray-300" required>

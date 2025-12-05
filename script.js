@@ -2,6 +2,8 @@ const modals = document.querySelectorAll('.modal');
 const closemodal =document.querySelectorAll('.close-Modal-btn');
 const addRevenuBtn =document.querySelector('.Add-revenu-btn');
 const addRevenuForm =document.querySelector('.Add-revenu-form');
+const addExpencesBtn =document.querySelector('.Add-expences-btn');
+const addExpencesForm =document.querySelector('.Add-expences-form');
 
 
 
@@ -16,6 +18,9 @@ modals.forEach((mdl)=>{
 
 addRevenuBtn.addEventListener('click',()=>{
         addRevenuForm.classList.remove('hidden');
+})
+addExpencesBtn.addEventListener('click',()=>{
+        addExpencesForm.classList.remove('hidden');
 })
 
 closemodal.forEach((closemdl)=>{
