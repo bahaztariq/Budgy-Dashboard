@@ -165,14 +165,14 @@ include('incomes/show-incomes.php');
                     <div class="lg:col-span-2 bg-white rounded-xl shadow-sm p-6 border border-gray-100">
                         <h3 class="font-bold text-lg text-black-800 mb-4">Revenue Analytics</h3>
                         <div class="h-64 w-full bg-black-50 rounded-lg flex items-center justify-center border border-dashed border-black-300 text-black-400">
-                         <canvas id="myChart"></canvas>
+                         <canvas id="LineChart"></canvas>
                         </div>
                     </div>
 
                     <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
                         <h3 class="font-bold text-lg text-black-800 mb-4">Traffic Source</h3>
                         <div class="h-40 w-full bg-black-50 rounded-lg flex items-center justify-center border border-dashed border-black-300 text-black-400 mb-4">
-                            [ Donut Chart Area ]
+                            <canvas id="DonutChart"></canvas>
                         </div>
                         <div class="space-y-3">
                             <div class="flex justify-between text-sm">
