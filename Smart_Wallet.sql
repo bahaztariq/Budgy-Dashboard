@@ -14,6 +14,12 @@ CREATE TABLE expences(
     description varchar(1000) NOT NULL,
     date_ DATE DEFAULT (CURRENT_TIME)
 );
+CREATE TABLE users(
+    UserID INT PRIMARY key AUTO_INCREMENT,
+    UserName varchar(50) NOT NULL,
+    Email varchar(100) NOT NULL,
+    password VARCHAR(100) NOT NULL
+);
 ALTER TABLE incomes ADD dateIn DATETIME DEFAULT CURRENT_TIMESTAMP;
 ALTER TABLE expences ADD dateIn DATETIME DEFAULT CURRENT_TIMESTAMP;
 
