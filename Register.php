@@ -1,3 +1,33 @@
+<?php
+require 'db_connect.php';
+session_start();
+
+if(isset($_POST['submit'])){
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $hashedPassword = password_hash($password,PASSWORD_DEFAULT);
+
+    $sql ="INSERT INTO users(userName,Email,password) VALUES(?,?,?)";
+    $stmt = $connect->prepare($sql);
+    $stmt->bind_param("sss", $username, $email, $hashedPassword);
+
+    try {
+        $stmt->execute();
+        echo "Registration successful!";
+        header('location:Dashboard.php');
+    } catch (mysqli_sql_exception $e) {
+        if ($e->getCode() == 1062) {
+            echo "That email is already registered.";
+        } else {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+
+    $stmt->close();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,24 +42,32 @@
 <body class="bg-gray-100">
     <main class="w-full h-screen flex items-center">
         <div class="w-full h-screen flex flex-col justify-center items-center gap-4 px-4 ">
-            <div class="w-3/5 h-1/8 flex justify-start items-center" >
+            <div class="w-full md:w-3/5 h-1/8 flex justify-start items-center" >
                 <a href="index.php" class="flex justify-center items-center gap-2 text-gray-500"> 
                     <i class="fi fi-ts-angle-left flex justify-center items-center" ></i>
                     <span>Back To Home </span>
                 </a>
             </div>
-            <form action="" method="POST" class="w-3/5 h-7/8 rounded-xl p-2 flex flex-col gap-2 ">
+            <form action="" method="POST" class="w-full md:w-3/5 h-7/8 rounded-xl p-2 flex flex-col gap-6 ">
                 <h1 class=" text-black font-bold text-5xl" >Sign Up</h1>
-                <div class="flex flex-col gap-2">
-                    <label for="">UserName Or Email :</label>
-                    <input type="text" placeholder="Enter Your userName Or email" class="w-full p-2 bg-black/20 rounded-md">
+                <div class="flex gap-2">
+                    <div class=" w-full flex flex-col gap-2">
+                      <label for="">UserName :</label>
+                      <input type="text" name="username" placeholder="Enter Your userName" class="w-full p-2 bg-gray-200 rounded-md">
+                    </div>
+                    <div class="w-full flex flex-col gap-2">
+                      <label for="">Email :</label>
+                      <input type="text" name="email" placeholder="Enter Your  email" class="w-full p-2 bg-gray-200 rounded-md">
+                    </div>
                 </div>
                 <div class="flex flex-col gap-2">
                     <label for="">Password :</label>
-                    <input type="Password" placeholder="Enter Your userName Or email" class="w-full p-2 bg-black/20 rounded-md">
+                    <input type="Password" name="password" placeholder="Enter Your userName Or email" class="w-full p-2 bg-gray-200 rounded-md">
                 </div>
-                <input type="submit" value="Login Now" class="w-full p-2 bg-green-300 rounded-md">
-                <p>Already Have Account?<a href="login.php" class="text-green-500">Sign in</a></p>
+                <div class="flex flex-col gap-2">
+                <input type="submit" name='submit' value="Register Now" class="w-full p-2 bg-green-300 rounded-md">
+                <p>Already Have Account?<a href="login.php" class="text-green-500"> Sign in</a></p>
+                </div>
             </form>
         </div>
         
