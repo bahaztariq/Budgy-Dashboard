@@ -9,7 +9,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
    $sql = "INSERT INTO expences(montant,date_,description) VALUES ('$montant','$Date','$Description')";
 
    if(mysqli_query($connect,$sql)){
-    header("location:../Dashboard.php");
+    header("location:../expences.php");
    }else{
     echo mysqli_error($connect);
    }
