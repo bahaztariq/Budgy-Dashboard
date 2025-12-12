@@ -16,6 +16,8 @@ if(isset($_POST['submit'])){
     try {
         $stmt->execute();
         echo "Registration successful!";
+        $_SESSION['user_id'] = $user['UserID'];
+        $_SESSION['username'] = $user['userName'];
         header('location:Dashboard.php');
     } catch (mysqli_sql_exception $e) {
         if ($e->getCode() == 1062) {
