@@ -13,18 +13,19 @@
     </style>
 </head>
 <body class="bg-gray-100">
-    <header class="fixed w-full">
-        <div class="w-full p-4 flex justify-between items-center">
-        <div class="flex items-center">
-        <img src="imgs/icon.png" alt="" class="w-12 h-12">
-        <h2 class="text-black text-3xl font-bold">Budgy</h2>
-        </div>
-        <a href="Dashboard.php" class=" flex justify-center items-center bg-black text-white px-6 py-3 rounded-xl text-xl">Get Start</a>
-       </div> 
+    <header class="w-full py-4 px-16 flex justify-between items-center md:px-4">
+            <div class="flex items-center">
+                <img src="imgs/icon.png" alt="" class="w-12 h-12">
+                <h2 class="text-black text-3xl font-bold">Budgy</h2>
+            </div>
+            <div class="flex gap-2 justify-between items-center">
+                <a href="login.php" class=" flex justify-center items-center  text-black px-6 py-3 rounded-xl text-xl">Login</a>
+                <a href="Register.php" class=" flex justify-center items-center bg-[#70E000] text-black px-4 py-1 rounded-xl text-xl">Sign up</a>
+            </div> 
     </header>
-    <main class="w-full h-screen flex justify-end p-1">
+    <!-- <main class="w-full h-screen flex justify-end p-1">
         <img src="imgs/heroBanner.png" alt="" class="hero-banner rounded-xl w-1/2 h-screen ">
-    </main>
+    </main> -->
     
 </body>
 </html>

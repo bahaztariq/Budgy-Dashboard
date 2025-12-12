@@ -52,13 +52,17 @@ if(isset($_POST['submit'])){
                 <h1 class=" text-black font-bold text-5xl" >Sign Up</h1>
                 <div class="flex gap-2">
                     <div class=" w-full flex flex-col gap-2">
-                      <label for="">UserName :</label>
-                      <input type="text" name="username" placeholder="Enter Your userName" class="w-full p-2 bg-gray-200 rounded-md">
+                      <label for="">FullName :</label>
+                      <input type="text" name="Fullname" placeholder="Enter Your userName" class="w-full p-2 bg-gray-200 rounded-md">
                     </div>
                     <div class="w-full flex flex-col gap-2">
-                      <label for="">Email :</label>
-                      <input type="text" name="email" placeholder="Enter Your  email" class="w-full p-2 bg-gray-200 rounded-md">
+                      <label for="">UserName :</label>
+                      <input type="text" name="username" placeholder="Enter Your  email" class="w-full p-2 bg-gray-200 rounded-md">
                     </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="">Email :</label>
+                    <input type="email" name="email" placeholder="Enter Your userName Or email" class="w-full p-2 bg-gray-200 rounded-md">
                 </div>
                 <div class="flex flex-col gap-2">
                     <label for="">Password :</label>

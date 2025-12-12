@@ -14,6 +14,7 @@ include('expences/show-expences.php');
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="icon" href="imgs/icon.png">
 
     <style>
         /* Custom Scrollbar for cleaner look */
