@@ -101,10 +101,10 @@ include('expences/show-expences.php');
                                    <td class='amount px-6 py-4 font-medium text-black-800'><span>{$row['montant']}</span> DH</td>
                                    <td class='px-6 py-4'>
                                    <div class='flex gap-4' >
-                                    <a href='incomes/modify-income.php/?id={$row['id']}' class='text-blue-400 cursor-pointer'>
+                                    <a href='expences/modify-expences.php/?id={$row['id']}' class='text-blue-400 cursor-pointer'>
                                     <button class='btn-action btn-edit text-blue-400 cursor-pointer'><i class='fas fa-edit'></i></button>
                                   </a>
-                                   <a href='incomes/Delete-income.php/?id={$row['id']}' class='text-red-400 cursor-pointer' >
+                                   <a href='expences/Delete-expences.php/?id={$row['id']}' class='text-red-400 cursor-pointer' >
                                     <button class='btn-action btn-delete text-red-400 cursor-pointer'><i class='fas fa-trash'></i></button>
                                   </a>   
                                   </div>
