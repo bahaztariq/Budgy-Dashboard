@@ -48,7 +48,7 @@ include('expences/show-expences.php');
                     <i class="ph ph-chart-line-down text-xl"></i>
                     <span class="font-medium">Expences</span>
                 </a>
-                <a href="#" class="flex items-center gap-3 px-4 py-3 text-black-400 hover:text-white hover:bg-black-800 rounded-lg transition-colors">
+                <a href="Cards.php" class="flex items-center gap-3 px-4 py-3 text-black-400 hover:text-white hover:bg-black-800 rounded-lg transition-colors">
                     <i class="fa-regular fa-credit-card"></i>
                     <span class="font-medium">Cards</span>
                 </a>
