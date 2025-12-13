@@ -63,8 +63,8 @@ if (isset($_POST['submit'])) {
                     <input type="Password" placeholder="Enter Your userName Or email" class="w-full p-2 bg-gray-200 rounded-md">
                 </div>
                 <div class="flex flex-col gap-2">
-                <input type="submit" value="Login Now" class="w-full p-2 bg-green-300 rounded-md">
-                <p>Don't have an account?<a href="Register.php" class="text-green-500"> Sign Up</a></p>
+                <input type="submit" value="Login Now" class="w-full p-2 bg-[#70E000] rounded-md">
+                <p>Don't have an account?<a href="Register.php" class="text-[#70E000]"> Sign Up</a></p>
                 </div>
             </form>
         </div>
