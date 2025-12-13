@@ -4,7 +4,6 @@ require('../db_connect.php');
 if(isset($_GET['id'])) {
     $id = $_GET['id'];
     
-    // Use prepared statement to prevent SQL injection
     $stmt = $connect->prepare("DELETE FROM incomes WHERE id = ?");
     $stmt->bind_param("i", $id);
     
