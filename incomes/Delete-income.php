@@ -8,16 +8,16 @@ if(isset($_GET['id'])) {
     $stmt->bind_param("i", $id);
     
     if($stmt->execute()) {
-        header("Location: ../incomes.php?message=deleted");
+        header("Location:../incomes.php");
         exit();
     } else {
-        header("Location: ../incomes.php?error=delete_failed");
+        header("Location:../incomes.php?error=delete_failed");
         exit();
     }
     
     $stmt->close();
 } else {
-    header("Location: ../incomes.php");
+    header("Location:../incomes.php");
     exit();
 }
 ?>
