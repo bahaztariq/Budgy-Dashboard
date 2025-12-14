@@ -112,8 +112,8 @@ include('expences/show-expences.php');
                              $sql = "SELECT SUM(montant) AS TotalRevenu FROM incomes GROUP BY DATE_FORMAT(dateIn,'%Y-%m') ORDER BY DATE_FORMAT(dateIn,'%Y-%m') DESC LIMIT 1";
                              $query = mysqli_query($connect, $sql); 
                              $row1 = mysqli_fetch_assoc($query);
-                             $sum = $row1['TotalRevenu'] ?? 0; 
-                             echo "<h3 class='text-2xl font-bold text-black-800'>" . number_format($sum, 2) . "</h3>";
+                             $sum1 = $row1['TotalRevenu'] ?? 0; 
+                             echo "<h3 class='text-2xl font-bold text-black-800'>" . number_format($sum1, 2) . "</h3>";
                              ?>
                             </div>
                             <div class="p-2 bg-green-50 rounded-lg text-green-600">
@@ -133,8 +133,8 @@ include('expences/show-expences.php');
                                 $sql = "SELECT SUM(montant) AS TotalExpences FROM expences GROUP BY DATE_FORMAT(dateIn,'%Y-%m') ORDER BY DATE_FORMAT(dateIn,'%Y-%m') DESC LIMIT 1";
                                 $query = mysqli_query($connect, $sql); 
                                 $row2 = mysqli_fetch_assoc($query);
-                                $sum = $row2['TotalExpences'] ?? 0; 
-                                echo "<h3 class='text-2xl font-bold text-black-800'>" . number_format($sum, 2) . "</h3>";
+                                $sum2 = $row2['TotalExpences'] ?? 0; 
+                                echo "<h3 class='text-2xl font-bold text-black-800'>" . number_format($sum2, 2) . "</h3>";
                              ?>
                             </div>
                             <div class="p-2 bg-indigo-50 rounded-lg text-indigo-600">
@@ -151,7 +151,7 @@ include('expences/show-expences.php');
                             <div>
                                 <p class="text-xs text-black-500 font-medium uppercase">Balance</p>
                                 <?php 
-                             $sum = $row1['TotalRevenu']  - $row2['TotalExpences']; 
+                             $sum = $sum1  - $sum2 ; 
                              echo "<h3 class='text-2xl font-bold text-black-800'>" . number_format($sum, 2) . "</h3>";
                              ?>
                             </div>
