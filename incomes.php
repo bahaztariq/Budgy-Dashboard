@@ -2,6 +2,17 @@
 require('./db_connect.php');
 include('incomes/show-incomes.php');
 include('expences/show-expences.php');
+
+$income_data = null;
+if(isset($_GET['edit_id'])) {
+    $edit_id = mysqli_real_escape_string($connect, $_GET['edit_id']);
+    $query = "SELECT * FROM incomes WHERE id = '$edit_id'";
+    $result = mysqli_query($connect, $query);
+    
+    if(mysqli_num_rows($result) > 0) {
+        $income_data = mysqli_fetch_assoc($result);
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -101,7 +112,7 @@ include('expences/show-expences.php');
                                    <td class='amount px-6 py-4 font-medium text-black-800'><span>{$row['montant']}</span> DH</td>
                                    <td class='px-6 py-4'>
                                    <div class='flex gap-4' >
-                                    <a href='incomes/modify-income.php/?id={$row['id']}' class='text-blue-400 cursor-pointer'>
+                                    <a href='incomes.php?edit_id={$row['id']}' class='text-blue-400 cursor-pointer'>
                                     <button class='btn-action btn-edit text-blue-400 cursor-pointer'><i class='fas fa-edit'></i></button>
                                   </a>
                                    <a href='incomes/Delete-income.php/?id={$row['id']}' class='text-red-400 cursor-pointer' >
@@ -135,6 +146,28 @@ include('expences/show-expences.php');
                 <textarea name="description" id="" placeholder="Enter the Description of Revenu" class=" min-h-30 p-2 bg-gray-200 rounded border border-gray-300" required></textarea>
             </div>
             <input type="submit" value="Add Revenu" class=" w-full bg-black text-white rounded-xl p-4">
+        </form>
+    </div>
+    <div class="modal Modify-revenu-form w-full h-screen bg-black/30 fixed top-0 left-0 flex justify-center items-center <?php echo isset($_GET['edit_id']) ? '' : 'hidden'; ?>" >
+        <form action="incomes/modify-income.php" method="POST" class="relative w-full max-w-116 max-h-80 md:max-h-128 bg-white rounded-xl shadow-md px-4 py-8 flex flex-col items-center gap-4 overflow-y-auto">
+            <button type="button" onclick="window.location.href='incomes.php'" class="close-Modal-btn absolute top-2 right-4 text-3xl cursor-pointer">&times;</button>
+            <h2 class="font-bold text-3xl text-black">Modify Revenu</h2>
+            
+            <input type="hidden" name="id" value="<?php echo $income_data ? $income_data['id'] : ''; ?>">
+            
+            <div class="flex flex-col w-full gap-1">
+                <label for="">Montant:</label>
+                <input type="text" name="montant" pattern="[0-9]{1,}" value="<?php echo $income_data ? htmlspecialchars($income_data['montant']) : ''; ?>" placeholder="Enter the amount of Revenu" class="p-2 bg-gray-200 rounded border border-gray-300" required>
+            </div>
+            <div class="flex flex-col w-full gap-1">
+                <label for="">Date:</label>
+                <input type="date" name="Date" value="<?php echo $income_data ? htmlspecialchars($income_data['date_']) : ''; ?>" class="p-2 bg-gray-200 rounded border border-gray-300" required>
+            </div>
+            <div class="flex flex-col w-full gap-1">
+                <label for="">Description:</label>
+                <textarea name="description" placeholder="Enter the Description of Revenu" class="min-h-30 p-2 bg-gray-200 rounded border border-gray-300" required><?php echo $income_data ? htmlspecialchars($income_data['description']) : ''; ?></textarea>
+            </div>
+            <input type="submit" value="Update Revenu" class="w-full bg-black text-white rounded-xl p-4 cursor-pointer">
         </form>
     </div>
     <script src="script.js"></script>

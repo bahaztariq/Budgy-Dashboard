@@ -4,6 +4,8 @@ const addRevenuBtn = document.querySelector('.Add-revenu-btn');
 const addRevenuForm = document.querySelector('.Add-revenu-form');
 const addExpencesBtn = document.querySelector('.Add-expences-btn');
 const addExpencesForm = document.querySelector('.Add-expences-form');
+const modifyRevenuModal = document.querySelector('.Modify-revenu-form');
+const modifyexpencesModal = document.querySelector('.Modify-expences-form');
 
 modals.forEach((mdl) => {
     mdl.addEventListener('click', (e) => {
@@ -33,6 +35,13 @@ closemodal.forEach((closemdl) => {
         }
     })
 })
+window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('edit_id')) {
+        modifyRevenuModal.classList.remove('hidden');
+        modifyexpencesModal.classList.remove('hidden');
+    }
+});
 
 // Only run chart code if the elements exist
 const ctx = document.getElementById('LineChart');
