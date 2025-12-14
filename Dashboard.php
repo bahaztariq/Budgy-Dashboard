@@ -13,6 +13,7 @@ include('expences/show-expences.php');
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sekuya&family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="icon" href="imgs/icon.png">
 
@@ -37,35 +38,35 @@ include('expences/show-expences.php');
 
             <nav class="flex-1 h-full px-2 py-4 space-y-2 overflow-y-auto">
                 <a href="Dashboard.php" class="flex items-center gap-3 px-4 py-3 bg-[#70E000] rounded-lg text-white">
-                    <i class="ph ph-squares-four text-xl"></i>
+                    <i class="w-5 h-5 ph ph-squares-four text-xl"></i>
                     <span class="font-medium">Overview</span>
                 </a>
                 <a href="incomes.php" class="flex items-center gap-3 px-4 py-3 text-black-400 hover:text-white hover:bg-black-800 rounded-lg transition-colors">
-                    <i class="ph ph-chart-line-up text-xl"></i>
+                    <i class="w-5 h-5 ph ph-chart-line-up text-xl"></i>
                     <span class="font-medium">Incomes</span>
                 </a>
                 <a href="expences.php" class="flex items-center gap-3 px-4 py-3 text-black-400 hover:text-white hover:bg-black-800 rounded-lg transition-colors">
-                    <i class="ph ph-chart-line-down text-xl"></i>
+                    <i class="w-5 h-5 ph ph-chart-line-down text-xl"></i>
                     <span class="font-medium">Expences</span>
                 </a>
                 <a href="Cards.php" class="flex items-center gap-3 px-4 py-3 text-black-400 hover:text-white hover:bg-black-800 rounded-lg transition-colors">
-                    <i class="fa-regular fa-credit-card"></i>
+                    <i class="w-5 h-5 fa-regular fa-credit-card"></i>
                     <span class="font-medium">Cards</span>
                 </a>
                 <a href="Bills.php" class="flex items-center gap-3 px-4 py-3 text-black-400 hover:text-white hover:bg-black-800 rounded-lg transition-colors">
-                    <i class="fa-solid fa-receipt"></i>
+                    <i class="w-5 h-5 fa-solid fa-receipt"></i>
                     <span class="font-medium"> bills</span>
                 </a>
                 <a href="#" class="flex items-center gap-3 px-4 py-3 text-black-400 hover:text-white hover:bg-black-800 rounded-lg transition-colors">
-                    <i class="ph ph-gear text-xl"></i>
+                    <i class="w-5 h-5 ph ph-gear text-xl"></i>
                     <span class="font-medium">Settings</span>
                 </a>
                 <a href="#" class="flex items-center gap-3 px-4 py-3 text-black-400 hover:text-white hover:bg-black-800 rounded-lg transition-colors">
-                    <i class="fa-solid fa-download"></i>
+                    <i class="w-5 h-5 fa-solid fa-download"></i>
                     <span class="font-medium">download</span>
                 </a>
                 <a href="logout.php" class="self-end flex items-center gap-3 px-4 py-3  rounded-lg text-white">
-                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                     <i class="w-5 h-5 fa-solid fa-arrow-right-from-bracket"></i>
                     <span class="font-medium">Logout</span>
                 </a>
             </nav>
@@ -77,17 +78,17 @@ include('expences/show-expences.php');
 
             <header class="h-16 bg-white shadow-sm flex items-center justify-between px-6 z-20">
                 <button @click="sidebarOpen = !sidebarOpen" class="md:hidden text-black-600 focus:outline-none">
-                    <i class="ph ph-list text-2xl"></i>
+                    <i class="w-5 h-5 ph ph-list text-2xl"></i>
                 </button>
 
                 <div class="hidden md:flex items-center bg-black-100 rounded-lg px-3 py-2 w-64">
-                    <i class="ph ph-magnifying-glass text-black-400 text-lg"></i>
+                    <i class="w-5 h-5 ph ph-magnifying-glass text-black-400 text-lg"></i>
                     <input type="text" placeholder="Search..." class="bg-transparent border-none outline-none text-sm ml-2 w-full placeholder-black-400">
                 </div>
 
                 <div class="flex items-center gap-4">
                     <button class="relative p-2 text-black-500 hover:bg-black-100 rounded-full transition">
-                        <i class="ph ph-bell text-xl"></i>
+                        <i class="w-5 h-5 ph ph-bell text-xl"></i>
                         <span class="absolute top-1 right-1 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white"></span>
                     </button>
                 </div>
@@ -116,11 +117,11 @@ include('expences/show-expences.php');
                              ?>
                             </div>
                             <div class="p-2 bg-green-50 rounded-lg text-green-600">
-                                <i class="ph ph-currency-dollar text-2xl"></i>
+                                <i class="w-5 h-5 ph ph-currency-dollar text-2xl"></i>
                             </div>
                         </div>
                         <p class="text-xs text-green-600 flex items-center gap-1">
-                            <i class="ph ph-trend-up"></i> +20.1% <span class="text-black-400">from last month</span>
+                            <i class="w-5 h-5 ph ph-trend-up"></i> +20.1% <span class="text-black-400">from last month</span>
                         </p>
                     </div>
 
@@ -137,11 +138,11 @@ include('expences/show-expences.php');
                              ?>
                             </div>
                             <div class="p-2 bg-indigo-50 rounded-lg text-indigo-600">
-                                <i class="ph ph-users-three text-2xl"></i>
+                                <i class="w-5 h-5 ph ph-users-three text-2xl"></i>
                             </div>
                         </div>
                         <p class="text-xs text-green-600 flex items-center gap-1">
-                            <i class="ph ph-trend-up"></i> +5.4% <span class="text-black-400">from last month</span>
+                            <i class="w-5 h-5 ph ph-trend-up"></i> +5.4% <span class="text-black-400">from last month</span>
                         </p>
                     </div>
 
@@ -155,7 +156,7 @@ include('expences/show-expences.php');
                              ?>
                             </div>
                             <div class="p-2 bg-red-50 rounded-lg text-red-600">
-                                <i class="ph ph-warning-circle text-2xl"></i>
+                                <i class="w-5 h-5 ph ph-warning-circle text-2xl"></i>
                             </div>
                         </div>
                         <p class="text-xs text-black-400">Requires attention</p>
