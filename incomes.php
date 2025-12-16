@@ -48,22 +48,6 @@ if(isset($_GET['edit_id'])) {
                     <i class="w-5 h-5 ph ph-chart-line-down text-xl"></i>
                     <span class="font-medium">Expences</span>
                 </a>
-                <a href="Cards.php" class="flex items-center gap-3 px-4 py-3 text-black-400 hover:text-white hover:bg-black-800 rounded-lg transition-colors">
-                    <i class="w-5 h-5 fa-regular fa-credit-card"></i>
-                    <span class="font-medium">Cards</span>
-                </a>
-                <a href="Bills.php" class="flex items-center gap-3 px-4 py-3 text-black-400 hover:text-white hover:bg-black-800 rounded-lg transition-colors">
-                    <i class="w-5 h-5 fa-solid fa-receipt"></i>
-                    <span class="font-medium"> bills</span>
-                </a>
-                <a href="#" class="flex items-center gap-3 px-4 py-3 text-black-400 hover:text-white hover:bg-black-800 rounded-lg transition-colors">
-                    <i class="w-5 h-5 ph ph-gear text-xl"></i>
-                    <span class="font-medium">Settings</span>
-                </a>
-                <a href="#" class="flex items-center gap-3 px-4 py-3 text-black-400 hover:text-white hover:bg-black-800 rounded-lg transition-colors">
-                    <i class="w-5 h-5 fa-solid fa-download"></i>
-                    <span class="font-medium">download</span>
-                </a>
                 <a href="logout.php" class="self-end flex items-center gap-3 px-4 py-3  rounded-lg text-white">
                      <i class="w-5 h-5 fa-solid fa-arrow-right-from-bracket"></i>
                     <span class="font-medium">Logout</span>

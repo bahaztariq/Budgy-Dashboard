@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
 
         if (password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['UserID'];
-            $_SESSION['username'] = $user['userName'];
+            $_SESSION['username'] = $user['UserName'];
             
             header("Location: Dashboard.php");
             exit();
