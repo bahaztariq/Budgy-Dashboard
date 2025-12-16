@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $stmt = $connect->prepare("SELECT UserID, userName, password FROM users WHERE email = ?");
+    $stmt = $connect->prepare("SELECT * FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -24,9 +24,11 @@ if (isset($_POST['submit'])) {
             exit();
         } else {
             $message = "Invalid password.";
+            echo $message;
         }
     } else {
         $message = "User not found.";
+        echo $message;
     }
     $stmt->close();
 }
@@ -52,18 +54,18 @@ if (isset($_POST['submit'])) {
                     <span>Back To Home </span>
                 </a>
             </div>
-            <form action="" method="POST" class="w-full md:w-3/5 h-7/8 rounded-xl p-2 flex flex-col gap-6 ">
+            <form action="login.php" method="POST" class="w-full md:w-3/5 h-7/8 rounded-xl p-2 flex flex-col gap-6 ">
                 <h1 class=" text-black font-bold text-5xl">Sign In</h1>
                 <div class="flex flex-col gap-2">
                     <label for="">UserName Or Email :</label>
-                    <input type="text" placeholder="Enter Your userName Or email" class="w-full p-2 bg-gray-200 rounded-md">
+                    <input type="text" name="email" placeholder="Enter Your userName Or email" class="w-full p-2 bg-gray-200 rounded-md">
                 </div>
                 <div class="flex flex-col gap-2">
                     <label for="">Password :</label>
-                    <input type="Password" placeholder="Enter Your userName Or email" class="w-full p-2 bg-gray-200 rounded-md">
+                    <input type="Password" name="password" placeholder="Enter Your userName Or email" class="w-full p-2 bg-gray-200 rounded-md">
                 </div>
                 <div class="flex flex-col gap-2">
-                <input type="submit" value="Login Now" class="w-full p-2 bg-[#70E000] rounded-md">
+                <input type="submit" name="submit" value="Login Now" class="w-full p-2 bg-[#70E000] rounded-md">
                 <p>Don't have an account?<a href="Register.php" class="text-[#70E000]"> Sign Up</a></p>
                 </div>
             </form>
