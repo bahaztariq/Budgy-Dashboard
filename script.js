@@ -85,9 +85,9 @@ if (dtx && typeof Donut !== 'undefined') {
                 hoverOffset: 4
             }]
         },
-        options: {
-            rotation: -90,
-            circumference: 180,
-        }
+        // options: {
+        //     rotation: -90,
+        //     circumference: 180,
+        // }
     });
 }

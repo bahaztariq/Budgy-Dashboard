@@ -156,32 +156,15 @@ if (!isset($_SESSION['user_id'])) {
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
                     <div class="lg:col-span-2 bg-white rounded-xl shadow-sm p-6 border border-gray-100">
                         <h3 class="font-bold text-lg text-black-800 mb-4">Revenue Analytics</h3>
-                        <div class="h-64 w-full bg-black-50 rounded-lg flex items-center justify-center border border-dashed border-black-300 text-black-400">
-                         <canvas id="LineChart"></canvas>
+                        <div class="h-64 w-full bg-black-50 rounded-lg flex items-center justify-center  text-black-400">
+                         <canvas id="LineChart" class="h-full w-full"></canvas>
                         </div>
                     </div>
 
                     <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
                         <h3 class="font-bold text-lg text-black-800 mb-4">Traffic Source</h3>
-                        <div class="h-40 w-full bg-black-50 rounded-lg flex items-center justify-center border border-dashed border-black-300 text-black-400 mb-4">
-                            <canvas id="DonutChart"></canvas>
-                        </div>
-                        <div class="space-y-3">
-                            <div class="flex justify-between text-sm">
-                                <span class="text-black-500">Direct</span>
-                                <span class="font-bold">54%</span>
-                            </div>
-                            <div class="w-full bg-black-100 rounded-full h-2">
-                                <div class="bg-indigo-600 h-2 rounded-full" style="width: 54%"></div>
-                            </div>
-                            
-                            <div class="flex justify-between text-sm">
-                                <span class="text-black-500">Referral</span>
-                                <span class="font-bold">32%</span>
-                            </div>
-                            <div class="w-full bg-black-100 rounded-full h-2">
-                                <div class="bg-green-500 h-2 rounded-full" style="width: 32%"></div>
-                            </div>
+                        <div class="h-64 w-full bg-black-50 rounded-lg flex items-center justify-center  text-black-400 mb-4">
+                            <canvas id="DonutChart" class="h-full w-full"></canvas>
                         </div>
                     </div>
                 </div>
@@ -192,8 +175,8 @@ if (!isset($_SESSION['user_id'])) {
     </div>
     <script>
         let Donut = [];
-        Donut.push("<?php echo $row1['TotalRevenu']?>");
         Donut.push("<?php echo $row2['TotalExpences']?>")
+        Donut.push("<?php echo $row1['TotalRevenu']?>");
         Donut.push("<?php echo $sum?>")
     </script>
     <script src="script.js"></script>
