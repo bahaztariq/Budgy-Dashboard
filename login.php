@@ -58,11 +58,11 @@ if (isset($_POST['submit'])) {
                 <h1 class=" text-black font-bold text-5xl">Sign In</h1>
                 <div class="flex flex-col gap-2">
                     <label for="">UserName Or Email :</label>
-                    <input type="text" name="email" placeholder="Enter Your userName Or email" class="w-full p-2 bg-gray-200 rounded-md">
+                    <input type="text" name="email" placeholder="Enter Your userName Or email" class="w-full p-2 bg-gray-200 rounded-md" required >
                 </div>
                 <div class="flex flex-col gap-2">
                     <label for="">Password :</label>
-                    <input type="Password" name="password" placeholder="Enter Your userName Or email" class="w-full p-2 bg-gray-200 rounded-md">
+                    <input type="Password" name="password" placeholder="Enter Your userName Or email" class="w-full p-2 bg-gray-200 rounded-md" required>
                 </div>
                 <div class="flex flex-col gap-2">
                 <input type="submit" name="submit" value="Login Now" class="w-full p-2 bg-[#70E000] rounded-md">

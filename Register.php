@@ -15,10 +15,12 @@ if(isset($_POST['submit'])){
 
     try {
         $stmt->execute();
+        $user = $stmt->insert_id;
         echo "Registration successful!";
-        $_SESSION['user_id'] = $user['UserID'];
-        $_SESSION['username'] = $user['userName'];
+        $_SESSION['user_id'] = $user;
+        $_SESSION['username'] = $username;
         header('location:Dashboard.php');
+        exit;
     } catch (mysqli_sql_exception $e) {
         if ($e->getCode() == 1062) {
             echo "That email is already registered.";
